@@ -31,8 +31,15 @@ public class InputView {
     /**
      * 사용자가 이동할 칸을 입력받는다.
      */
-    public String readMoving() {
-        return null;
+    public MovingDto readMoving(final OutputView outputView) {
+        outputView.printMovingInputMessage();
+        try {
+            String inputMoving = input();
+            return new MovingDto(inputMoving);
+        } catch (IllegalArgumentException exception) {
+            outputView.printErrorMessage(exception);
+            return readMoving(outputView);
+        }
     }
 
     /**
