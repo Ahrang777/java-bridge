@@ -1,6 +1,7 @@
 package bridge.view;
 
 import bridge.dto.BridgeSizeDto;
+import bridge.dto.GameCommandDto;
 import bridge.dto.MovingDto;
 import bridge.validator.InputBridgeSizeValidator;
 import camp.nextstep.edu.missionutils.Console;
@@ -45,7 +46,14 @@ public class InputView {
     /**
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
-    public String readGameCommand() {
-        return null;
+    public GameCommandDto readGameCommand(final OutputView outputView) {
+        outputView.printGameCommandInputMessage();
+        try {
+            String inputGameCommand = input();
+            return new GameCommandDto(inputGameCommand);
+        } catch (IllegalArgumentException exception) {
+            outputView.printErrorMessage(exception);
+            return readGameCommand(outputView);
+        }
     }
 }
