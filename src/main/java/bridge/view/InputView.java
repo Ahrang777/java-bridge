@@ -1,6 +1,7 @@
 package bridge.view;
 
 import bridge.dto.BridgeSizeDto;
+import bridge.dto.MovingDto;
 import bridge.validator.InputBridgeSizeValidator;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -16,8 +17,7 @@ public class InputView {
         outputView.printBridgeSizeInputMessage();
         try {
             String inputBridgeSize = input();
-            InputBridgeSizeValidator.validate(inputBridgeSize);
-            return new BridgeSizeDto(Integer.parseInt(inputBridgeSize));
+            return new BridgeSizeDto(inputBridgeSize);
         } catch (IllegalArgumentException exception) {
             outputView.printErrorMessage(exception);
             return readBridgeSize(outputView);
