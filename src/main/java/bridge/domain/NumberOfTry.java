@@ -8,6 +8,10 @@ public class NumberOfTry {
         this.numberOfTry = INIT_NUMBER_OF_TRY;
     }
 
+    public void increase() {
+        numberOfTry++;
+    }
+
     public int getNumberOfTry() {
         return numberOfTry;
     }
