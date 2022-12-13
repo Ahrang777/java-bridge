@@ -1,13 +1,13 @@
 package bridge.dto;
 
 public class BridgeSizeDto {
-    private final int BridgeSizeDto;
+    private final int bridgeSize;
 
-    public BridgeSizeDto(final int bridgeSizeDto) {
-        BridgeSizeDto = bridgeSizeDto;
+    public BridgeSizeDto(final int bridgeSize) {
+        this.bridgeSize = bridgeSize;
     }
 
-    public int getBridgeSizeDto() {
-        return BridgeSizeDto;
+    public int getBridgeSize() {
+        return bridgeSize;
     }
 }
